@@ -1,7 +1,7 @@
 # CHaserLua Documentation
 
 > [!NOTE]
-> 旧バージョンのCHaserLuaは[こちら](htttps://github.com/kqnade/CHaserLua-archive)です。
+> 旧バージョンのCHaserLuaは[こちら](https://github.com/kqnade/CHaserLua-archive)です。
 
 ## 目次
 
