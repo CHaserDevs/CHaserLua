@@ -36,7 +36,7 @@ Releaseページより `connect.lua`をダウンロードしてください。
 
 ### CHaserLuaの実行
 
-CHaserLuaを実行するには、Luaの実行環境が必要です。
+CHaserLuaを実行するには、Luaの実行環境、`luarocks`、`luajit`、`connect.lua`、エージェントコードを記述したLuaファイルが必要です。
 
 `connect.lua`をプロジェクトディレクトリに配置し、エージェントコードを記述したLuaファイルの中で`connect.lua`を読み込んでください。
 
@@ -63,7 +63,7 @@ CHaserLuaは、以下の基本メソッドを提供しています。
 - `walk(direction)`
   - 指定した方向に移動します。
   - 引数: `Up`, `Down`, `Left`, `Right`
-  - 戻り値: なし（Void）
+  - 戻り値: なし (Void)
 - `look(direction)`
   - 指定した方向の3x3のマスの情報を取得します。
   - 引数: `Up`, `Down`, `Left`, `Right`
@@ -75,7 +75,7 @@ CHaserLuaは、以下の基本メソッドを提供しています。
 - `put(direction)`
   - 指定した方向にブロックを置きます。
   - 引数: `Up`, `Down`, `Left`, `Right`
-  - 戻り値: なし（Void）
+  - 戻り値: なし (Void)
 
 ### CHaserLuaの機能
 
@@ -92,7 +92,7 @@ CHaserLuaは、以下のメソッドを効率化のために提供していま�
 - RandomMove()
   - ランダムな方向に移動します。(移動可能方向のみ)
   - 引数: なし
-  - 戻り値: なし（Void）
+  - 戻り値: なし (Void)
 
 ## CHaserLuaのサンプルプログラム
 
@@ -103,16 +103,16 @@ CHaserLuaのサンプルプログラムは、GitHubのリポジトリの[Samples
 サンプルプログラムを実行するには、以下のコマンドを実行してください。
 
 ```bash
-$ lua testClient.lua
+$ lua [sampleFile.lua]
 ```
 
 ## CHaserLuaの開発
 
 ### CHaserLuaの開発環境
 
-- Lua 5.4.3
-- LuaJIT 2.1.0-beta3
-- LuaRocks 3.8.0
+- Lua 5.4 (Latest)
+- LuaJIT 2.1
+- LuaRocks 3.11
 
 CHaserLuaの主要メンバーの開発環境は、以下の通りです。
 
