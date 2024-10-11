@@ -3,6 +3,10 @@
 > [!NOTE]
 > 旧バージョンのCHaserLuaは[こちら](https://github.com/kqnade/CHaserLua-archive)です。
 
+> [!IMPORTANT]
+> 現在、開発中であり正常動作は保証されていません。
+> 安定版リリースを待つか、本コードを改変してご利用ください。
+
 ## 目次
 
 - [CHaser Luaとは](#chaser-luaとは)
