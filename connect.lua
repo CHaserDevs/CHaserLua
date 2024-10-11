@@ -6,6 +6,7 @@ socket = require("socket")
 -- クラス定義
 CHaserConnect = {}
 CHaserConnect.__index = CHaserConnect
+CHaserConnect.LastMovements = {}
 
 -- コンストラクタ
 function CHaserConnect.new(name)
@@ -115,7 +116,7 @@ function CHaserConnect:put(dir)
 end
 
 -- AbleToMove
-function AbleToMove(direction, grData)
+function CHaserConnect:AbleToMove(direction, grData)
   if direction == "Up" and grData[2] ~= 0 then
     return true
   elseif direction == "Down" and grData[8] ~= 0 then
@@ -129,10 +130,52 @@ function AbleToMove(direction, grData)
   end  
 end
 
+function CHaserConnect:LastMove()
+  -- insert last move to LastMovements
+  local lastMove = CHaserConnect.LastMovements[#CHaserConnect.LastMovements]
+  local lastMoveType = lastMove:sub(1, 1)
+  local lastMoveDirection = lastMove:sub(2, 2)
+
+  if lastMoveType == "w" then
+    if lastMoveDirection == "u" then
+      return "Down"
+    elseif lastMoveDirection == "d" then
+      return "Up"
+    elseif lastMoveDirection == "l" then
+      return "Right"
+    elseif lastMoveDirection == "r" then
+      return "Left"
+    else
+      return lastMoveType
+    end
+  else
+    return lastMoveType
+  end
+end
+
+-- RandomDirection
+function CHaserConnect:RandomDirection()
+  local directions = {"Up", "Down", "Left", "Right"}
+  local lastMove = self:LastMove()
+  
+  -- Create a new table for valid directions
+  local validDirections = {}
+  for _, direction in ipairs(directions) do
+    if direction ~= lastMove then
+      table.insert(validDirections, direction)
+    end
+  end
+
+  -- Return a random direction from the valid ones
+  return validDirections[math.random(#validDirections)]
+end
+
 -- コマンド送信関数
 function CHaserConnect:sendCommand(command)
   print('"' .. self.name .. '"は' .. command .. 'をサーバに送信')
   self.socket:send(command .. "\r\n") -- コマンドをサーバに送信
+  -- insert last command to LastMovements
+  table.insert(CHaserConnect.LastMovements, command)
   local msg, err = self.socket:receive()
   if not msg then -- エラー処理
     print('"' .. self.name .. '"は' .. command .. 'をサーバに送信できませんでした')
