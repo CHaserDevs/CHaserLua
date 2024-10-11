@@ -60,6 +60,10 @@ CHaserLuaは、CHaserの仕様に準拠して設計されています。CHaserLu
 
 CHaserLuaは、以下の基本メソッドを提供しています。
 
+- `getReady()`
+  - 自分の周囲3x3のマスの情報を取得します。
+  - 引数: なし
+  - 戻り値: マスの情報 Array(9)
 - `walk(direction)`
   - 指定した方向に移動します。
   - 引数: `Up`, `Down`, `Left`, `Right`
