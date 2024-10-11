@@ -34,7 +34,7 @@ CHaserLuaは、CHaser[^1]のLua用ライブラリです。CHaserLuaを利用す�
 
 ### CHaserLuaのダウンロード
 
-CHaserLuaは、GitHubのリポジトリの[Releases](https:..github.com/kqnade/CHaserLua/releases)からダウンロードすることができます。  
+CHaserLuaは、GitHubのリポジトリの[Releases](https://github.com/kqnade/CHaserLua/releases)からダウンロードすることができます。  
 Releaseページより `connect.lua`をダウンロードしてください。
 テストエージェントが必要な場合は`testClient.lua`をダウンロードしてください。
 
@@ -89,11 +89,11 @@ CHaserLuaは、以下の基本メソッドを提供しています。
 
 CHaserLuaは、以下のメソッドを効率化のために提供しています。
 
-- AbleToMove(direction)
+- `AbleToMove(direction)`
   - エージェントが移動可能かどうかを判定します。
   - 引数: `Up`, `Down`, `Left`, `Right`
   - 戻り値: 移動可能な場合は`true`、移動不可能な場合は`false`
-- LastMove()
+- `LastMove()`
   - エージェントの最後の移動方向を取得します。
   - 引数: なし
   - 戻り値: 最後の移動方向 `Up`, `Down`, `Left`, `Right`、または`l` (look)、`s` (search)、`p` (put)
@@ -104,7 +104,7 @@ CHaserLuaは、以下のメソッドを効率化のために提供していま�
 
 ## CHaserLuaのサンプルプログラム
 
-CHaserLuaのサンプルプログラムは、GitHubのリポジトリの[Samples](https://github.com/kqnade/CHaserLua/samples)または、[Releases](https://github.com/kqnade/CHaserLua/releases)の`testClient.lua`が利用できます。
+CHaserLuaのサンプルプログラムは、GitHubのリポジトリの[Samples](https://github.com/kqnade/CHaserLua/blob/dev/samples)または、[Releases](https://github.com/kqnade/CHaserLua/releases)の`testClient.lua`が利用できます。
 
 ### サンプルプログラムの実行
 
@@ -141,4 +141,4 @@ CHaserLuaの開発方法は、以下の通りです。
 
 ### CHaserLuaのライセンス
 
-CHaserLuaは、MITライセンスのもとで公開されています。詳細については、[LICENSE](https://github.com/kqnade/CHaserLua/LICENSE)を参照してください。
+CHaserLuaは、MITライセンスのもとで公開されています。詳細については、[LICENSE](https://github.com/kqnade/CHaserLua/blob/dev/LICENSE)を参照してください。
