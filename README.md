@@ -89,15 +89,15 @@ CHaserLuaは、以下の基本メソッドを提供しています。
 
 CHaserLuaは、以下のメソッドを効率化のために提供しています。
 
-- AbleToMove(direction)
+- `AbleToMove(direction)`
   - エージェントが移動可能かどうかを判定します。
   - 引数: `Up`, `Down`, `Left`, `Right`
   - 戻り値: 移動可能な場合は`true`、移動不可能な場合は`false`
-- LastMove()
+- `LastMove()`
   - エージェントの最後の移動方向を取得します。
   - 引数: なし
   - 戻り値: 最後の移動方向 `Up`, `Down`, `Left`, `Right`
-- RandomMove()
+- `RandomMove()`
   - ランダムな方向に移動します。(移動可能方向のみ)
   - 引数: なし
   - 戻り値: なし (Void)
