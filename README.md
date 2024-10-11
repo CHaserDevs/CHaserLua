@@ -96,11 +96,11 @@ CHaserLuaは、以下のメソッドを効率化のために提供していま�
 - LastMove()
   - エージェントの最後の移動方向を取得します。
   - 引数: なし
-  - 戻り値: 最後の移動方向 `Up`, `Down`, `Left`, `Right`
-- RandomMove()
-  - ランダムな方向に移動します。(移動可能方向のみ)
+  - 戻り値: 最後の移動方向 `Up`, `Down`, `Left`, `Right`、または`l` (look)、`s` (search)、`p` (put)
+- RandomDirection()
+  - ランダムな方向を取得します。 (移動可能な方向のみ)
   - 引数: なし
-  - 戻り値: なし (Void)
+  - 戻り値: ランダムな方向 `Up`, `Down`, `Left`, `Right`
 
 ## CHaserLuaのサンプルプログラム
 
