@@ -114,6 +114,21 @@ function CHaserConnect:put(dir)
   end
 end
 
+-- AbleToMove
+function AbleToMove(direction, grData)
+  if direction == "Up" and grData[2] ~= 0 then
+    return true
+  elseif direction == "Down" and grData[8] ~= 0 then
+    return true
+  elseif direction == "Left" and grData[4] ~= 0 then
+    return true
+  elseif direction == "Right" and grData[6] ~= 0 then
+    return true
+  else
+    return false
+  end  
+end
+
 -- コマンド送信関数
 function CHaserConnect:sendCommand(command)
   print('"' .. self.name .. '"は' .. command .. 'をサーバに送信')
