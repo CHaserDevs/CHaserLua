@@ -130,19 +130,11 @@ function CHaserConnect:LastMove()
   local lastMove = CHaserConnect.LastMovements[#CHaserConnect.LastMovements]
   local lastMoveType = lastMove:sub(1, 1)
   local lastMoveDirection = lastMove:sub(2, 2)
+  
+  local reverseDirectionMap = { u = "Down", d = "Up", l = "Right", r = "Left" }
 
   if lastMoveType == "w" then
-    if lastMoveDirection == "u" then
-      return "Down"
-    elseif lastMoveDirection == "d" then
-      return "Up"
-    elseif lastMoveDirection == "l" then
-      return "Right"
-    elseif lastMoveDirection == "r" then
-      return "Left"
-    else
-      return lastMoveType
-    end
+    return reverseDirectionMap[lastMoveDirection] or lastMoveType
   else
     return lastMoveType
   end
