@@ -117,17 +117,12 @@ end
 
 -- AbleToMove
 function CHaserConnect:AbleToMove(direction, grData)
-  if direction == "Up" and grData[2] ~= 0 then
-    return true
-  elseif direction == "Down" and grData[8] ~= 0 then
-    return true
-  elseif direction == "Left" and grData[4] ~= 0 then
-    return true
-  elseif direction == "Right" and grData[6] ~= 0 then
-    return true
+  local directionMap = { Up = 2, Down = 8, Left = 4, Right = 6 }
+  if directionMap[direction] then
+    return grData[directionMap[direction]] ~= 0
   else
     return false
-  end  
+  end
 end
 
 function CHaserConnect:LastMove()
