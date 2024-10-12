@@ -6,6 +6,7 @@ socket = require("socket")
 -- クラス定義
 CHaserConnect = {}
 CHaserConnect.__index = CHaserConnect
+CHaserConnect.LastMovements = {}
 
 -- コンストラクタ
 function CHaserConnect.new(name)
@@ -114,10 +115,54 @@ function CHaserConnect:put(dir)
   end
 end
 
+-- AbleToMove
+function CHaserConnect:AbleToMove(direction, grData)
+  local directionMap = { Up = 2, Down = 8, Left = 4, Right = 6 }
+  if directionMap[direction] then
+    return grData[directionMap[direction]] ~= 0
+  else
+    return false
+  end
+end
+
+function CHaserConnect:LastMove()
+  -- insert last move to LastMovements
+  local lastMove = CHaserConnect.LastMovements[#CHaserConnect.LastMovements]
+  local lastMoveType = lastMove:sub(1, 1)
+  local lastMoveDirection = lastMove:sub(2, 2)
+  
+  local reverseDirectionMap = { u = "Down", d = "Up", l = "Right", r = "Left" }
+
+  if lastMoveType == "w" then
+    return reverseDirectionMap[lastMoveDirection] or lastMoveType
+  else
+    return lastMoveType
+  end
+end
+
+-- RandomDirection
+function CHaserConnect:RandomDirection()
+  local directions = {"Up", "Down", "Left", "Right"}
+  local lastMove = self:LastMove()
+  
+  -- Create a new table for valid directions
+  local validDirections = {}
+  for _, direction in ipairs(directions) do
+    if direction ~= lastMove then
+      table.insert(validDirections, direction)
+    end
+  end
+
+  -- Return a random direction from the valid ones
+  return validDirections[math.random(#validDirections)]
+end
+
 -- コマンド送信関数
 function CHaserConnect:sendCommand(command)
   print('"' .. self.name .. '"は' .. command .. 'をサーバに送信')
   self.socket:send(command .. "\r\n") -- コマンドをサーバに送信
+  -- insert last command to LastMovements
+  table.insert(CHaserConnect.LastMovements, command)
   local msg, err = self.socket:receive()
   if not msg then -- エラー処理
     print('"' .. self.name .. '"は' .. command .. 'をサーバに送信できませんでした')
